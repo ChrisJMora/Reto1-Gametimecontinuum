@@ -35,10 +35,7 @@ public class VidaJugador : MonoBehaviour
     private void DisminuirVida()
     {
         vidas--;
-        if (vidas == 0)
-        {
-            ElJugadorSeQuedoSinVidas.Invoke();
-            vidas = 0; // No permite que las vidas bajen de cero
-        }
+        if (vidas < 0) vidas = 0; // No permite que las vidas bajen de cero
+        if (vidas == 0) ElJugadorSeQuedoSinVidas.Invoke();
     }
 }
